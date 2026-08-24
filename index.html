@@ -140,9 +140,8 @@
     --m-accent:#5CACBE; --m-accent-soft:#1D343A; --m-success:#45C08C; --m-success-soft:#163628; --m-warning:#E3A64A; --m-warning-soft:#3A2C15;
     --m-shadow-card:0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5); --m-shadow-phone:0 30px 70px -20px rgba(0,0,0,0.7), 0 10px 24px -10px rgba(0,0,0,0.5); }
 
-  .phones-row{display:flex; gap:28px; overflow-x:auto; padding:56px 24px 24px; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;}
-  .phones-row::-webkit-scrollbar{display:none;}
-  .phone-card{display:flex; flex-direction:column; align-items:center; gap:14px; flex-shrink:0; scroll-snap-align:center;}
+  .phones-row{display:flex; flex-wrap:wrap; justify-content:center; gap:28px; padding:56px 24px 24px;}
+  .phone-card{display:flex; flex-direction:column; align-items:center; gap:14px; flex-shrink:0;}
   .phone{width:250px; height:522px; background:#05070A; border-radius:40px; padding:10px; box-shadow:var(--m-shadow-phone); flex-shrink:0; position:relative; font-family:var(--m-font-display);}
   .screen{position:relative; width:100%; height:100%; background:var(--m-paper); border-radius:31px; overflow:hidden; display:flex; flex-direction:column; color:var(--m-ink);}
   .status-bar{display:flex; justify-content:space-between; align-items:center; padding:14px 22px 4px; font-size:11.5px; font-weight:600; flex-shrink:0;}
@@ -203,6 +202,35 @@
   .status-dot.off{background:var(--m-ink-faint); opacity:0.5;}
   .fab{position:absolute; bottom:18px; right:18px; width:44px; height:44px; border-radius:50%; background:var(--m-accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:300; box-shadow:0 12px 24px -8px rgba(27,77,92,0.6);}
 
+  .back-chevron{width:24px; height:24px; border-radius:7px; background:var(--m-surface); border:1px solid var(--m-line); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--m-ink-soft); flex-shrink:0;}
+  .range-picker{display:flex; align-items:center; justify-content:space-between; background:var(--m-surface); border-radius:10px; padding:9px 12px; box-shadow:var(--m-shadow-card); margin-bottom:12px; flex-shrink:0; font-size:11px; font-weight:600;}
+  .chip-row{display:flex; gap:6px; margin-bottom:12px; flex-shrink:0; overflow:hidden;}
+  .chip{font-size:10px; font-weight:600; padding:6px 10px; border-radius:100px; background:var(--m-surface); border:1px solid var(--m-line); color:var(--m-ink-soft); white-space:nowrap;}
+  .chip.active{background:var(--m-accent); border-color:var(--m-accent); color:#fff;}
+  .report-card{background:var(--m-surface); border-radius:14px; padding:12px; box-shadow:var(--m-shadow-card); margin-bottom:8px; flex-shrink:0;}
+  .rc-top{display:flex; align-items:center; gap:8px; margin-bottom:10px;}
+  .rc-top .name{font-size:11.5px; font-weight:700; flex:1;}
+  .rc-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px;}
+  .rc-stat .num{font-family:var(--m-font-display); font-size:12.5px; font-weight:800;}
+  .rc-stat .lbl{font-size:8px; color:var(--m-ink-faint); text-transform:uppercase; margin-top:1px;}
+
+  .plan-tag{display:inline-flex; align-self:flex-start; background:var(--m-accent-soft); color:var(--m-accent); font-size:10px; font-weight:700; padding:4px 10px; border-radius:100px; margin-bottom:14px; flex-shrink:0;}
+  .plan-card{background:var(--m-surface); border-radius:14px; padding:13px; box-shadow:var(--m-shadow-card); margin-bottom:8px; flex-shrink:0; border:1.5px solid transparent;}
+  .plan-card.featured{border-color:var(--m-accent);}
+  .pc-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;}
+  .pc-name{font-family:var(--m-font-display); font-size:13px; font-weight:800;}
+  .pc-price{font-size:11px; font-weight:700; color:var(--m-ink-soft);}
+  .pc-feat{font-size:9.5px; color:var(--m-ink-soft); margin:3px 0 0; line-height:1.5;}
+  .pc-featured-tag{font-size:8.5px; font-weight:700; color:var(--m-accent); text-transform:uppercase; margin-bottom:4px;}
+
+  .date-group-label{font-size:10px; font-weight:700; color:var(--m-ink-faint); text-transform:uppercase; letter-spacing:0.03em; margin:12px 0 7px; flex-shrink:0;}
+  .date-group-label:first-child{margin-top:0;}
+  .history-row{display:flex; align-items:center; gap:8px; background:var(--m-surface); border-radius:12px; padding:9px 10px; box-shadow:var(--m-shadow-card); margin-bottom:7px; flex-shrink:0;}
+  .history-row .times{flex:1;}
+  .history-row .t{font-size:11px; font-weight:600;}
+  .history-row .d{font-size:9px; color:var(--m-ink-faint); margin-top:1px;}
+  .history-row .dur{font-family:var(--m-font-display); font-size:12px; font-weight:800; flex-shrink:0;}
+
   .clock-body{align-items:center; text-align:center; justify-content:flex-start; padding-top:18px; gap:0;}
   .clock-time{font-family:var(--m-font-display); font-size:34px; font-weight:800; margin:0;}
   .clock-date{font-size:11px; color:var(--m-ink-faint); margin:2px 0 16px; text-transform:capitalize;}
@@ -223,9 +251,8 @@
   .kiosk-exit-link{font-size:10.5px; margin-top:auto; padding-top:12px; flex-shrink:0;}
 
   /* Real-device screenshots section */
-  .real-shots{display:flex; gap:20px; overflow-x:auto; padding:12px 24px 24px; scroll-snap-type:x proximity;}
-  .real-shots::-webkit-scrollbar{display:none;}
-  .real-shots img{height:460px; border-radius:26px; scroll-snap-align:center; flex-shrink:0; box-shadow:0 20px 60px rgba(22,36,31,0.18); border:1px solid var(--border);}
+  .real-shots{display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:12px 24px 24px;}
+  .real-shots img{height:460px; border-radius:26px; flex-shrink:0; box-shadow:0 20px 60px rgba(22,36,31,0.18); border:1px solid var(--border);}
 </style>
 </head>
 <body>
@@ -372,6 +399,89 @@
         </div>
       </div></div>
       <div class="phone-caption"><p class="name">Modo Kiosco</p><p class="desc">Una tablet, todo el equipo.</p></div>
+    </div>
+
+    <div class="phone-card">
+      <div class="phone"><div class="screen has-tabbar">
+        <div class="notch"></div>
+        <div class="status-bar"><span>9:41</span><span class="icons">📶 🔋</span></div>
+        <div class="screen-body">
+          <div class="screen-title"><h4>Reportes</h4><span class="back-chevron">⇧</span></div>
+          <div class="range-picker"><span>1 – 7 de agosto</span><span>›</span></div>
+          <div class="chip-row"><span class="chip active">Todos</span><span class="chip">María G.</span><span class="chip">Carlos R.</span></div>
+          <div class="report-card">
+            <div class="rc-top"><div class="avatar" style="background:#1B4D5C">MG</div><span class="name">María González</span></div>
+            <div class="rc-grid">
+              <div class="rc-stat"><p class="num">38.5h</p><p class="lbl">Regular</p></div>
+              <div class="rc-stat"><p class="num">4.0h</p><p class="lbl">Extra</p></div>
+              <div class="rc-stat"><p class="num">$531k</p><p class="lbl">A pagar</p></div>
+            </div>
+          </div>
+          <div class="report-card">
+            <div class="rc-top"><div class="avatar" style="background:#A8650E">CR</div><span class="name">Carlos Ruiz</span></div>
+            <div class="rc-grid">
+              <div class="rc-stat"><p class="num">40.0h</p><p class="lbl">Regular</p></div>
+              <div class="rc-stat"><p class="num">0.0h</p><p class="lbl">Extra</p></div>
+              <div class="rc-stat"><p class="num">$500k</p><p class="lbl">A pagar</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="tabbar-float">
+          <div class="tabbar-item"><span class="ic">📊</span>Panel</div>
+          <div class="tabbar-item"><span class="ic">👥</span>Empleados</div>
+          <div class="tabbar-item active"><span class="ic">📄</span>Reportes</div>
+          <div class="tabbar-item"><span class="ic">🖥️</span>Kiosco</div>
+          <div class="tabbar-item"><span class="ic">⚙️</span>Ajustes</div>
+        </div>
+      </div></div>
+      <div class="phone-caption"><p class="name">Reportes</p><p class="desc">Horas, extras y pago, listos para pagar nómina.</p></div>
+    </div>
+
+    <div class="phone-card">
+      <div class="phone"><div class="screen">
+        <div class="notch"></div>
+        <div class="status-bar"><span>9:41</span><span class="icons">📶 🔋</span></div>
+        <div class="screen-body">
+          <div class="screen-title"><h4>Tu plan</h4></div>
+          <span class="plan-tag">Plan actual · Free</span>
+          <div class="plan-card">
+            <div class="pc-top"><span class="pc-name">Free</span><span class="pc-price">$0</span></div>
+            <p class="pc-feat">Hasta 2 empleados · Fichaje básico</p>
+          </div>
+          <div class="plan-card featured">
+            <p class="pc-featured-tag">Recomendado</p>
+            <div class="pc-top"><span class="pc-name">Pro</span><span class="pc-price">$29.99/mes</span></div>
+            <p class="pc-feat">Hasta 20 empleados · Reportes por email · Modo kiosco</p>
+          </div>
+          <div class="plan-card">
+            <div class="pc-top"><span class="pc-name">Enterprise</span><span class="pc-price">$79.99/mes</span></div>
+            <p class="pc-feat">Empleados ilimitados · Soporte prioritario</p>
+          </div>
+        </div>
+      </div></div>
+      <div class="phone-caption"><p class="name">Suscripción</p><p class="desc">El plan recomendado, siempre a la vista.</p></div>
+    </div>
+
+    <div class="phone-card">
+      <div class="phone"><div class="screen has-tabbar">
+        <div class="notch"></div>
+        <div class="status-bar"><span>9:41</span><span class="icons">📶 🔋</span></div>
+        <div class="screen-body">
+          <div class="screen-title"><h4>Historial</h4></div>
+          <p class="date-group-label">Hoy · 7 de agosto</p>
+          <div class="history-row"><div class="times"><p class="t">7:58 a.m. → 6:02 p.m.</p><p class="d">iPhone · Dentro de zona</p></div><p class="dur">10h 04m</p></div>
+          <p class="date-group-label">Ayer · 6 de agosto</p>
+          <div class="history-row"><div class="times"><p class="t">8:02 a.m. → 5:58 p.m.</p><p class="d">iPad Kiosco</p></div><p class="dur">9h 56m</p></div>
+          <div class="history-row"><div class="times"><p class="t">8:00 a.m. → 12:30 p.m.</p><p class="d">iPhone</p></div><p class="dur">4h 30m</p></div>
+        </div>
+        <div class="tabbar-float">
+          <div class="tabbar-item"><span class="ic">🕐</span>Fichaje</div>
+          <div class="tabbar-item active"><span class="ic">📋</span>Historial</div>
+          <div class="tabbar-item"><span class="ic">📈</span>Resumen</div>
+          <div class="tabbar-item"><span class="ic">👤</span>Perfil</div>
+        </div>
+      </div></div>
+      <div class="phone-caption"><p class="name">Historial</p><p class="desc">Agrupado por día, siempre ordenado.</p></div>
     </div>
   </div>
 </header>
